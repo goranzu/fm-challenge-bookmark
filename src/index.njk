@@ -1,9 +1,249 @@
 ---
 layout: base
-eleventyNavigation:
-  key: Home
 ---
 
-<div class="container">
-  <h1>A blank 11ty project.</h1>
+<div class="overlay">
+  <div class="mobile-nav">
+    <div class="logo">{% icon "logo-bookmark" %}</div>
+    <div>{% icon "icon-close" %}</div>
+    <nav class="mobile-nav">
+      <ul role="list">
+        <li><a href="#features">features</a></li>
+        <li><a href="#pricing">pricing</a></li>
+        <li><a href="#contact">contact</a></li>
+        <li><a class="btn" href="#">Login</a></li>
+      </ul>
+    </nav>
+    <div class="media">
+      <div>{% icon "icon-facebook" %}</div>
+      <div>{% icon "icon-twitter" %}</div>
+    </div>
+  </div>
 </div>
+
+<header class="header">
+  <div class="logo">{% icon "logo-bookmark" %}</div>
+
+  <nav class="primary-nav">
+    <ul role="list">
+      <li><a href="#features">features</a></li>
+      <li><a href="#pricing">pricing</a></li>
+      <li><a href="#contact">contact</a></li>
+      <li><a class="btn" href="#">Login</a></li>
+    </ul>
+  </nav>
+  <div>{% icon "icon-hamburger" %}</div>
+</header>
+
+<section class="hero">
+  <div class="text-box">
+    <h1>A Simple Bookmark Manager</h1>
+    <p>
+      A clean and simple interface to organize your favourite websites. Open a
+      new browser tab and see your sites load instantly. Try it for free.
+    </p>
+    <div>
+      <a href="#" class="btn">Get it on Chrome</a>
+      <a href="#" class="btn">Get it on Firefox</a>
+    </div>
+  </div>
+  <div class="illustration">
+    <img src="./assets/images/illustration-hero.svg" alt="pc desktop" />
+    <div class="illustration-background"></div>
+  </div>
+</section>
+
+<section class="features">
+  <h2>Features</h2>
+  <p>
+    Our aim is to make it quick and easy for you to access your favourite
+    websites. Your bookmarks sync between your devices so you can access them on
+    the go.
+  </p>
+
+  <div class="tabs">
+    <div role="tablist" aria-label="Feature Tabs">
+      <button
+        aria-selected="true"
+        aria-controls="panel-1"
+        id="tab-1"
+        tabindex="0"
+      >
+        Simple Bookmarking
+      </button>
+      <button
+        aria-selected="false"
+        aria-controls="panel-2"
+        id="tab-2"
+        tabindex="-1"
+      >
+        Speedy Searching
+      </button>
+      <button
+        aria-selected="false"
+        aria-controls="panel-3"
+        id="tab-3"
+        tabindex="-1"
+      >
+        Easy Sharing
+      </button>
+    </div>
+    <div id="panel-1" role="tabpanel" tabindex="0" aria-labelledby="tab-1">
+      <div class="illustration">
+        <img
+          src="./assets/images/illustration-features-tab-1.svg"
+          alt="pc desktop"
+        />
+        <div class="illustration-background"></div>
+      </div>
+      <div class="text-box">
+        <h3>Bookmark in one click</h3>
+        <p>
+          Organize your bookmarks however you like. Our simple drag-and-drop
+          interface gives you complete control over how you manage your
+          favourite sites.
+        </p>
+        <a href="#" class="btn">More Info</a>
+      </div>
+    </div>
+    <div id="panel-2" role="tabpanel" tabindex="0" aria-labelledby="tab-2">
+      <div class="illustration">
+        <img
+          src="./assets/images/illustration-features-tab-2.svg"
+          alt="pc desktop"
+        />
+        <div class="illustration-background"></div>
+      </div>
+      <div class="text-box">
+        <h3>Intelligent Search</h3>
+        <p>
+          Our powerful search feature will help you find saved sites in no time
+          at all. No need to trawl through all of your bookmarks.
+        </p>
+        <a href="#" class="btn">More Info</a>
+      </div>
+    </div>
+    <div id="panel-3" role="tabpanel" tabindex="0" aria-labelledby="tab-3">
+      <div class="illustration">
+        <img
+          src="./assets/images/illustration-features-tab-3.svg"
+          alt="pc desktop"
+        />
+        <div class="illustration-background"></div>
+      </div>
+      <div class="text-box">
+        <h3>Share your bookmarks</h3>
+        <p>
+          Easily share your bookmarks and collections with others. Create a
+          shareable link that you can send at the click of a button.
+        </p>
+        <a href="#" class="btn">More Info</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <h2>Download the extension</h2>
+  <p>
+    We’ve got more browsers in the pipeline. Please do let us know if you’ve got
+    a favourite you’d like us to prioritize.
+  </p>
+
+  <div>
+    {% for cta in ctaCards %}
+    <div class="card">
+      <img src="{{ cta.image }}" alt="{{ cta.name }}" />
+      Add to {{ cta.name }}
+      <div>{% icon "bg-dots" %}</div>
+      <a href="#" class="btn">Add & install Extension</a>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="faq">
+  <h2>Frequently Asked Questions</h2>
+  <p>
+    Here are some of our FAQs. If you have any other questions you’d like
+    answered please feel free to email us.
+  </p>
+
+  <div class="questions">
+    <button class="btn">What is Bookmark {% icon "icon-arrow" %}</button>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce tincidunt
+      justo eget ultricies fringilla. Phasellus blandit ipsum quis quam ornare
+      mattis.
+    </p>
+    <button class="btn">
+      How can i request a new browser? {% icon "icon-arrow" %}
+    </button>
+    <p>
+      Vivamus luctus eros aliquet convallis ultricies. Mauris augue massa,
+      ultricies non ligula. Suspendisse imperdiet. Vivamus luctus eros aliquet
+      convallis ultricies. Mauris augue massa, ultricies non ligula. Suspendisse
+      imperdie tVivamus luctus eros aliquet convallis ultricies. Mauris augue
+      massa, ultricies non ligula. Suspendisse imperdiet.
+    </p>
+    <button class="btn">Is there a mobile app? {% icon "icon-arrow" %}</button>
+    <p>
+      Sed consectetur quam id neque fermentum accumsan. Praesent luctus
+      vestibulum dolor, ut condimentum urna vulputate eget. Cras in ligula quis
+      est pharetra mattis sit amet pharetra purus. Sed sollicitudin ex et
+      ultricies bibendum.
+    </p>
+    <button class="btn">
+      What about other chromium browsers? {% icon "icon-arrow" %}
+    </button>
+    <p>
+      Integer condimentum ipsum id imperdiet finibus. Vivamus in placerat mi, at
+      euismod dui. Aliquam vitae neque eget nisl gravida pellentesque non ut
+      velit.
+    </p>
+  </div>
+  <a href="#" class="btn">More Info</a>
+</section>
+
+<section class="contact">
+  <p>35,000+ already joined</p>
+  <h2>Stay up-to-date with what we’re doing</h2>
+  <form action="">
+    <label class="sr-only" for="email">Email</label>
+    <input
+      type="email"
+      name="email"
+      id="email"
+      placeholder="example@email.com"
+      required
+    />
+    <p class="error">Whoops, make sure it is email</p>
+    <button type="submit" class="btn">Contact Us</button>
+  </form>
+</section>
+
+<section class="socials">
+  <div class="logo">{% icon "logo-bookmark" %}</div>
+
+  <nav class="secondary -nav">
+    <ul role="list">
+      <li><a href="#features">features</a></li>
+      <li><a href="#pricing">pricing</a></li>
+      <li><a href="#contact">contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="media">
+    <div>{% icon "icon-facebook" %}</div>
+    <div>{% icon "icon-twitter" %}</div>
+  </div>
+</section>
+
+<footer>
+  <p class="attribution">
+    Challenge by
+    <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+      >Frontend Mentor</a
+    >. Coded by <a href="#">Goran Tenic</a>.
+  </p>
+</footer>
