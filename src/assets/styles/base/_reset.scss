@@ -47,6 +47,10 @@ textarea {
   font: inherit;
 }
 
+button {
+  cursor: pointer;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -82,4 +86,69 @@ textarea {
 .overlay.open {
   opacity: 1;
   pointer-events: all;
+}
+
+/* Start */
+
+body {
+  font-family: var(--ff-ss);
+  font-weight: var(--fw-400);
+  text-align: center;
+}
+
+.hidden {
+  display: none;
+}
+
+.split {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: var(--dir, column);
+}
+
+.container {
+  max-width: 650px;
+  padding: 0 2rem;
+}
+
+section {
+  margin-top: 3em;
+}
+
+.flow > * + * {
+  /* set default flow size, set to different size where needed */
+  margin-top: var(--fl, 1.5em);
+}
+
+.btn-blue {
+  background-color: var(--clr-primary);
+  color: white;
+}
+
+.btn-white {
+  background-color: var(--clr-neutral-300);
+  color: var(--clr-neutral-500);
+}
+
+.btn {
+  display: inline-block;
+  text-decoration: none;
+  cursor: pointer;
+  padding: 0.75em 1.5em;
+  border-radius: var(--br);
+}
+
+.header {
+  --dir: row;
+  padding-top: 2em;
+  padding-bottom: 1em;
+}
+
+.hero {
+  --dir: column-reverse;
+}
+
+.hero .cta-buttons {
+  --dir: row;
 }
