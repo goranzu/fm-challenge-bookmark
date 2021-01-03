@@ -2,16 +2,16 @@
   {
     "image": "./assets/images/logo-chrome.svg",
     "version": 62,
-    "name": "google"
+    "name": "Google"
   },
   {
     "image": "./assets/images/logo-firefox.svg",
     "version": 55,
-    "name": "firefox"
+    "name": "Firefox"
   },
   {
     "image": "./assets/images/logo-opera.svg",
     "version": 46,
-    "name": "opera"
+    "name": "Opera"
   }
 ]
