@@ -46,12 +46,12 @@ layout: base
 <header class="header split container">
   <div class="logo">{% icon "logo-bookmark" %}</div>
 
-  <nav class="primary-nav hidden">
-    <ul role="list">
+  <nav class="primary-nav">
+    <ul role="list" class="split">
       <li><a href="#features">features</a></li>
       <li><a href="#pricing">pricing</a></li>
       <li><a href="#contact">contact</a></li>
-      <li><a class="btn" href="#">Login</a></li>
+      <li><a class="btn bg-red" href="#">Login</a></li>
     </ul>
   </nav>
   <button class="open-nav-button">
@@ -80,12 +80,14 @@ layout: base
 </section>
 
 <section class="features container flow">
-  <h2>Features</h2>
-  <p>
-    Our aim is to make it quick and easy for you to access your favourite
-    websites. Your bookmarks sync between your devices so you can access them on
-    the go.
-  </p>
+  <header class="flow section-header">
+    <h2>Features</h2>
+    <p>
+      Our aim is to make it quick and easy for you to access your favourite
+      websites. Your bookmarks sync between your devices so you can access them
+      on the go.
+    </p>
+  </header>
 
   <div class="tabs flow">
     <div class="tab-buttons split" role="tablist" aria-label="Feature Tabs">
@@ -116,7 +118,7 @@ layout: base
       </button>
     </div>
     <div
-      class="panel"
+      class="panel split"
       id="panel-1"
       role="tabpanel"
       tabindex="0"
@@ -141,7 +143,7 @@ layout: base
       </div>
     </div>
     <div
-      class="panel"
+      class="panel split"
       id="panel-2"
       role="tabpanel"
       tabindex="0"
@@ -165,7 +167,7 @@ layout: base
       </div>
     </div>
     <div
-      class="panel"
+      class="panel split"
       id="panel-3"
       role="tabpanel"
       tabindex="0"
@@ -192,7 +194,7 @@ layout: base
 </section>
 
 <section class="cta container flow">
-  <header class="flow">
+  <header class="section-header flow">
     <h2>Download the extension</h2>
     <p>
       We’ve got more browsers in the pipeline. Please do let us know if you’ve
@@ -200,9 +202,9 @@ layout: base
     </p>
   </header>
 
-  <div class="cards flow">
+  <div class="cards split flow">
     {% for cta in ctaCards %}
-    <div class="card flow">
+    <div class="card">
       <img src="{{ cta.image }}" alt="{{ cta.name }}" />
       <div class="info">
         <span> Add to {{ cta.name }} </span>
