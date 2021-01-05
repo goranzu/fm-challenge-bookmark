@@ -80,6 +80,11 @@ body {
   text-align: center;
   font-size: var(--fs-400);
   color: var(--clr-neutral-400);
+  overflow-x: hidden;
+
+  @include mq(lg) {
+    text-align: left;
+  }
 }
 
 h1,
@@ -118,11 +123,17 @@ h4 {
 }
 
 section {
-  margin-top: 4em;
+  margin-top: 2em;
+}
+
+section,
+footer {
+  padding-top: 2em;
+  padding-bottom: 2em;
 }
 
 section:not(:first-of-type) {
-  margin-top: 9em;
+  margin-top: 7em;
 }
 
 .flow > * + * {
@@ -169,19 +180,20 @@ section:not(:first-of-type) {
   .logo {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
   }
-}
 
-.open-nav-button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: none;
-  background-color: transparent;
+  .open-nav-button {
+    flex-basis: content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    background-color: transparent;
 
-  @include mq(md) {
-    display: none;
+    @include mq(md) {
+      display: none;
+    }
   }
 }
 
@@ -221,12 +233,17 @@ section:not(:first-of-type) {
   @include mq(lg) {
     --dir: row;
   }
-}
 
-.cta-buttons {
-  max-width: 450px;
-  margin-left: auto;
-  margin-right: auto;
+  .cta-buttons {
+    max-width: 450px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+
+    @include mq(lg) {
+      margin-left: 0;
+    }
+  }
 }
 
 .illustration {
@@ -239,7 +256,7 @@ section:not(:first-of-type) {
   background-color: var(--clr-primary);
   top: 20%;
   height: 80%;
-  width: 100%;
+  width: 300%;
   z-index: -1;
 }
 
@@ -250,7 +267,9 @@ section:not(:first-of-type) {
 
 .tabs .illustration > div::after {
   height: 95%;
-  left: -12%;
+  // left: -80%;
+  left: unset;
+  right: 20%;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 125px;
 }
@@ -261,6 +280,10 @@ section:not(:first-of-type) {
   max-width: 550px;
   margin-left: auto;
   margin-right: auto;
+
+  @include mq(lg) {
+    text-align: center;
+  }
 }
 
 .features {
@@ -269,17 +292,16 @@ section:not(:first-of-type) {
     .text-box {
       --fl: 1.5rem;
     }
-
-    @include mq(lg) {
-      max-width: 750px;
-      margin-left: auto;
-      margin-right: auto;
-    }
   }
 }
 
 .panel {
   --gap: 0;
+  display: none;
+
+  &.active {
+    display: flex;
+  }
 
   @include mq(lg) {
     --dir: row;
@@ -313,16 +335,15 @@ section:not(:first-of-type) {
 
   @include mq(lg) {
     --dir: row;
+    max-width: 750px;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 
 .tab-buttons > *:hover {
   background-color: var(--clr-neutral-300);
 }
-
-// .tab-buttons > *:not(:last-of-type) {
-//   border-bottom: none;
-// }
 
 .tab-buttons button.active::after {
   content: "";
@@ -349,14 +370,13 @@ section:not(:first-of-type) {
   width: 80%;
   margin-left: auto;
   margin-right: auto;
-  // --gap: 0;
   --wrap: wrap;
 
   @include mq(lg) {
     --dir: row;
     --fl: 0em;
     --gap: 2em;
-    margin-top: 1.5em;
+    margin-top: -2.5em;
   }
 }
 
@@ -367,6 +387,18 @@ section:not(:first-of-type) {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
+  &:nth-of-type(2) {
+    @include mq(xl) {
+      margin-top: 7rem;
+    }
+  }
+
+  &:nth-of-type(3) {
+    @include mq(xl) {
+      margin-top: 14rem;
+    }
+  }
 
   @include mq(md) {
     max-width: 280px;
@@ -395,12 +427,31 @@ section:not(:first-of-type) {
 
 /* FAQ */
 
-.faq .btn {
-  margin-top: 2em;
+.faq {
+  max-width: 550px;
+  margin-left: auto;
+  margin-right: auto;
+
+  .btn {
+    margin-top: 2em;
+  }
+
+  .btn {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    max-width: 120px;
+    text-align: center;
+  }
 }
 
 .questions {
   margin-top: 3em;
+
+  .answer {
+    display: none;
+    margin-top: 0.5em;
+  }
 
   button {
     display: flex;
@@ -433,14 +484,14 @@ section:not(:first-of-type) {
 /* Contact */
 
 .contact {
-  padding-top: 4em;
+  padding-top: 2em;
   padding-bottom: 2em;
-  --fl: 0.5em;
+
   h2 {
     color: inherit;
   }
 
-  > p:first-of-type {
+  p:first-of-type {
     letter-spacing: 4px;
     text-transform: uppercase;
   }
@@ -457,24 +508,53 @@ section:not(:first-of-type) {
     border: 0;
     margin-top: 1em;
   }
-}
 
-.contact-form {
-  width: 100%;
+  .contact-text {
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    --fl: 0.5em;
+  }
 
-  input,
-  button {
+  .contact-form {
     width: 100%;
-  }
+    max-width: 450px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2em;
 
-  input {
-    padding: 0.5em;
-    border-radius: var(--br);
-  }
+    @include mq(lg) {
+      display: flex;
+      // align-items: center;
 
-  input.error {
-    border: 2px solid var(--clr-secondary);
-    border-radius: var(--br) var(--br) 0 0;
+      > div {
+        flex-basis: 200%;
+      }
+
+      > button {
+        margin-top: 0;
+      }
+
+      > * + * {
+        margin-left: 0.7em;
+      }
+    }
+
+    input,
+    button {
+      width: 100%;
+    }
+
+    input {
+      padding: 0.5em;
+      border-radius: var(--br);
+    }
+
+    input.error {
+      border: 2px solid var(--clr-secondary);
+      border-radius: var(--br) var(--br) 0 0;
+    }
   }
 }
 
@@ -483,10 +563,54 @@ section:not(:first-of-type) {
 .footer {
   padding-top: 1em;
   padding-bottom: 1em;
+  text-align: center;
+  font-size: 0.9rem;
+
+  @include mq(lg) {
+    text-align: left;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    padding-bottom: 0;
+
+    .logo {
+      display: inline-block;
+
+      > * {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+
+    .secondary-nav {
+      display: inline-block;
+      margin-top: 0;
+    }
+
+    .fl {
+      display: flex;
+      width: 50%;
+      grid-column: 1 / span 1;
+    }
+  }
 
   ul {
     padding: 0;
     margin: 0;
+    @include mq(lg) {
+      display: flex;
+
+      margin-left: 2em;
+
+      > * {
+        margin-top: 0;
+        align-self: flex-start;
+      }
+
+      > * + * {
+        margin-left: 1em;
+      }
+    }
   }
 
   a {
@@ -495,10 +619,27 @@ section:not(:first-of-type) {
     color: var(--clr-neutral-300);
     text-transform: uppercase;
     transition: opacity 0.1s;
+    line-height: 0;
   }
 
-  .media > span + span {
-    margin-left: 2em;
+  .media {
+    @include mq(lg) {
+      grid-column: 2 / span 1;
+      margin-top: 0;
+      justify-self: end;
+    }
+
+    > span + span {
+      margin-left: 2em;
+    }
+  }
+
+  .attribution {
+    font-size: 1rem;
+    @include mq(lg) {
+      grid-column: 1 / -1;
+      justify-self: center;
+    }
   }
 
   .attribution a {
