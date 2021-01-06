@@ -23,7 +23,7 @@ layout: base
         </g>
       </svg>
     </div>
-    <button>
+    <button class="close-nav-button">
       <span class="sr-only">Close mobile navigation</span> {% icon "icon-close"
       %}
     </button>
@@ -68,8 +68,8 @@ layout: base
       new browser tab and see your sites load instantly. Try it for free.
     </p>
     <div class="split cta-buttons">
-      <a href="#" class="btn bg-blue">Get it on Chrome</a>
-      <a href="#" class="btn bg-white">Get it on Firefox</a>
+      <a href="#" class="btn google bg-blue">Get it on Chrome</a>
+      <a href="#" class="btn firefox bg-white">Get it on Firefox</a>
     </div>
   </div>
   <div class="illustration">
@@ -79,7 +79,7 @@ layout: base
   </div>
 </section>
 
-<section class="features container flow">
+<section id="features" class="features container flow">
   <header class="flow section-header">
     <h2>Features</h2>
     <p>
@@ -92,11 +92,11 @@ layout: base
   <div class="tabs flow">
     <div class="tab-buttons split" role="tablist" aria-label="Feature Tabs">
       <button
-        class="active"
         aria-selected="true"
         aria-controls="panel-1"
         id="tab-1"
         tabindex="0"
+        role="tab"
       >
         Simple Bookmarking
       </button>
@@ -105,6 +105,7 @@ layout: base
         aria-controls="panel-2"
         id="tab-2"
         tabindex="-1"
+        role="tab"
       >
         Speedy Searching
       </button>
@@ -113,12 +114,13 @@ layout: base
         aria-controls="panel-3"
         id="tab-3"
         tabindex="-1"
+        role="tab"
       >
         Easy Sharing
       </button>
     </div>
     <div
-      class="panel split active"
+      class="panel split"
       id="panel-1"
       role="tabpanel"
       tabindex="0"
@@ -148,6 +150,7 @@ layout: base
       role="tabpanel"
       tabindex="0"
       aria-labelledby="tab-2"
+      hidden
     >
       <div class="illustration">
         <div>
@@ -172,6 +175,7 @@ layout: base
       role="tabpanel"
       tabindex="0"
       aria-labelledby="tab-3"
+      hidden
     >
       <div class="illustration">
         <div>
@@ -193,7 +197,7 @@ layout: base
   </div>
 </section>
 
-<section class="cta container flow">
+<section id="pricing" class="cta container flow">
   <header class="section-header flow">
     <h2>Download the extension</h2>
     <p>
@@ -266,7 +270,7 @@ layout: base
   <a class="btn bg-blue" href="#">More Info</a>
 </section>
 
-<section class="bg-blue">
+<section id="contact" class="bg-blue">
   <div class="contact container">
     <div class="contact-text flow">
       <p>35,000+ already joined</p>

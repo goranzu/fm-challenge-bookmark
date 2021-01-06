@@ -51,6 +51,10 @@ button {
   cursor: pointer;
 }
 
+[hidden] {
+  display: none !important;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -158,7 +162,7 @@ section:not(:first-of-type) {
 
 .bg-red {
   background-color: var(--clr-secondary);
-  color: white !important;
+  color: white;
 }
 
 .btn {
@@ -205,11 +209,26 @@ section:not(:first-of-type) {
     text-transform: uppercase;
     text-decoration: none;
     font-size: 1rem;
+    transition: color 0.1s;
+  }
+
+  a:hover,
+  a:active {
+    color: var(--clr-secondary);
   }
 
   .btn {
     padding-left: 2em;
     padding-right: 2em;
+    color: white;
+    transition: all 0.1s;
+  }
+
+  .btn:hover,
+  .btn:active {
+    color: var(--clr-secondary);
+    background-color: transparent;
+    box-shadow: 0 0 5px var(--clr-secondary);
   }
 
   @include mq(md) {
@@ -239,6 +258,26 @@ section:not(:first-of-type) {
     margin-left: auto;
     margin-right: auto;
     text-align: center;
+
+    .google,
+    .firefox {
+      transition: all 0.1s;
+    }
+
+    .google:hover,
+    .google:active,
+    .firefox:hover,
+    .firefox:active {
+      --fg: var(--clr-primary);
+      background-color: transparent;
+      color: var(--fg);
+      box-shadow: 0 0 5px var(--fg);
+    }
+
+    .firefox:hover,
+    .firefox:active {
+      --fg: var(--clr-neutral-500);
+    }
 
     @include mq(lg) {
       margin-left: 0;
@@ -297,11 +336,6 @@ section:not(:first-of-type) {
 
 .panel {
   --gap: 0;
-  display: none;
-
-  &.active {
-    display: flex;
-  }
 
   @include mq(lg) {
     --dir: row;
@@ -342,10 +376,10 @@ section:not(:first-of-type) {
 }
 
 .tab-buttons > *:hover {
-  background-color: var(--clr-neutral-300);
+  color: var(--clr-secondary);
 }
 
-.tab-buttons button.active::after {
+.tab-buttons button[aria-selected="true"]::after {
   content: "";
   width: 40%;
   height: 4px;
@@ -398,6 +432,17 @@ section:not(:first-of-type) {
     @include mq(xl) {
       margin-top: 14rem;
     }
+  }
+
+  .btn {
+    transition: all 0.2s;
+  }
+
+  .btn:hover,
+  .btn:active {
+    background-color: transparent;
+    color: var(--clr-primary);
+    box-shadow: 0 0 5px var(--clr-primary);
   }
 
   @include mq(md) {
@@ -462,7 +507,7 @@ section:not(:first-of-type) {
     background-color: transparent;
     border: none;
     border-bottom: 1px solid var(--clr-neutral-400);
-    transition: background-color 0.2s;
+    transition: color 0.2s;
     stroke: var(--clr-primary);
   }
   button.close .icon {
@@ -471,7 +516,7 @@ section:not(:first-of-type) {
   }
 
   button:hover {
-    background-color: var(--clr-neutral-300);
+    color: var(--clr-secondary);
   }
 
   svg {
@@ -691,12 +736,19 @@ section:not(:first-of-type) {
 .nav-header {
   --dir: row;
 
+  .logo {
+    flex-grow: 0;
+    flex-basis: content;
+  }
+
   button {
     display: flex;
     align-items: center;
     justify-content: center;
     border: none;
     background-color: transparent;
+    flex-basis: content;
+    flex-grow: 0;
   }
 }
 
