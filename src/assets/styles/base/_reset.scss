@@ -49,6 +49,7 @@ textarea {
 
 button {
   cursor: pointer;
+  border: 1px solid transparent;
 }
 
 [hidden] {
@@ -172,6 +173,7 @@ section:not(:first-of-type) {
   padding: 0.5em 1em;
   border-radius: var(--br);
   box-shadow: var(--box-shadow);
+  border: 2px solid var(--border-color, transparent);
 }
 
 /* header */
@@ -226,9 +228,9 @@ section:not(:first-of-type) {
 
   .btn:hover,
   .btn:active {
+    --border-color: var(--clr-secondary);
     color: var(--clr-secondary);
     background-color: transparent;
-    box-shadow: 0 0 5px var(--clr-secondary);
   }
 
   @include mq(md) {
@@ -269,14 +271,15 @@ section:not(:first-of-type) {
     .firefox:hover,
     .firefox:active {
       --fg: var(--clr-primary);
+      --border-color: var(--clr-primary);
       background-color: transparent;
       color: var(--fg);
-      box-shadow: 0 0 5px var(--fg);
     }
 
     .firefox:hover,
     .firefox:active {
       --fg: var(--clr-neutral-500);
+      --border-color: var(--clr-neutral-500);
     }
 
     @include mq(lg) {
@@ -442,7 +445,7 @@ section:not(:first-of-type) {
   .btn:active {
     background-color: transparent;
     color: var(--clr-primary);
-    box-shadow: 0 0 5px var(--clr-primary);
+    --border-color: var(--clr-primary);
   }
 
   @include mq(md) {
@@ -494,8 +497,8 @@ section:not(:first-of-type) {
   margin-top: 3em;
 
   .answer {
-    display: none;
     margin-top: 0.5em;
+    text-align: left;
   }
 
   button {
@@ -509,7 +512,27 @@ section:not(:first-of-type) {
     border-bottom: 1px solid var(--clr-neutral-400);
     transition: color 0.2s;
     stroke: var(--clr-primary);
+
+    > * {
+      pointer-events: none;
+    }
+
+    .icon {
+      transition: transform 0.1s;
+      path {
+        transition: stroke 0.1s;
+      }
+    }
+
+    .icon.open {
+      transform: rotate(180deg);
+
+      path {
+        stroke: var(--clr-secondary);
+      }
+    }
   }
+
   button.close .icon {
     transform: rotate(180deg);
     stroke: var(--clr-secondary);
@@ -536,12 +559,20 @@ section:not(:first-of-type) {
     color: inherit;
   }
 
-  p:first-of-type {
+  p {
     letter-spacing: 4px;
     text-transform: uppercase;
   }
 
+  .form-group {
+    position: relative;
+  }
+
   .error-message {
+    position: absolute;
+    bottom: -36px;
+    left: 0;
+    letter-spacing: unset;
     text-align: left;
     font-size: 0.9rem;
     padding: 0.5em;
@@ -550,7 +581,6 @@ section:not(:first-of-type) {
   }
 
   .btn {
-    border: 0;
     margin-top: 1em;
   }
 
@@ -589,6 +619,12 @@ section:not(:first-of-type) {
     input,
     button {
       width: 100%;
+    }
+
+    button:hover {
+      background-color: white;
+      color: var(--clr-secondary);
+      --border-color: var(--clr-secondary);
     }
 
     input {
@@ -665,9 +701,27 @@ section:not(:first-of-type) {
     text-transform: uppercase;
     transition: opacity 0.1s;
     line-height: 0;
+    transition: color 0.1s;
+  }
+
+  a:hover,
+  a.active {
+    color: var(--clr-secondary);
   }
 
   .media {
+    path {
+      transition: fill 0.1s;
+    }
+
+    span {
+      cursor: pointer;
+    }
+
+    span:hover path {
+      fill: var(--clr-secondary);
+    }
+
     @include mq(lg) {
       grid-column: 2 / span 1;
       margin-top: 0;

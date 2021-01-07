@@ -6,6 +6,10 @@ class Tabs {
     this.tabEl = tabEl;
     this.tabButtons = this.tabEl.querySelectorAll("[role=tab]");
     this.tabPanels = Array.from(this.tabEl.querySelectorAll("[role=tabpanel]"));
+
+    this.tabButtons.forEach((el) =>
+      el.addEventListener("click", this.handleClick.bind(this)),
+    );
   }
 
   handleTabButtons(e) {
@@ -33,12 +37,6 @@ class Tabs {
     this.handleTabButtons(e);
 
     this.handleTabPanels(e);
-  }
-
-  init() {
-    this.tabButtons.forEach((el) =>
-      el.addEventListener("click", this.handleClick.bind(this)),
-    );
   }
 }
 
