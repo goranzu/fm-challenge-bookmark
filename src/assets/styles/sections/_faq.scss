@@ -1,0 +1,77 @@
+.faq {
+  max-width: 550px;
+  margin-left: auto;
+  margin-right: auto;
+
+  .btn {
+    margin-top: 2em;
+  }
+
+  .btn {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    max-width: 120px;
+    text-align: center;
+  }
+}
+
+.questions {
+  margin-top: 3em;
+
+  .question {
+    text-align: left;
+  }
+
+  .answer {
+    margin-top: 0.5em;
+    text-align: left;
+  }
+
+  button {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 1em 0.5em;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid var(--clr-neutral-400);
+    transition: color 0.2s;
+    stroke: var(--clr-primary);
+
+    > * {
+      pointer-events: none;
+    }
+
+    .icon {
+      transition: transform 0.1s;
+      path {
+        transition: stroke 0.1s;
+      }
+    }
+
+    .icon.open {
+      transform: rotate(180deg);
+
+      path {
+        stroke: var(--clr-secondary);
+      }
+    }
+  }
+
+  button.close .icon {
+    transform: rotate(180deg);
+    stroke: var(--clr-secondary);
+  }
+
+  button:hover {
+    color: var(--clr-secondary);
+  }
+
+  svg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

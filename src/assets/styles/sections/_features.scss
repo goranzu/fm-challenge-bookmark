@@ -1,0 +1,108 @@
+/* Tabs */
+
+.section-header {
+  max-width: 550px;
+  margin-left: auto;
+  margin-right: auto;
+
+  @include mq(lg) {
+    text-align: center;
+  }
+}
+
+.features {
+  .tabs {
+    --fl: 3rem;
+    .text-box {
+      --fl: 1.5rem;
+    }
+  }
+}
+
+.panel {
+  --gap: 0;
+
+  @include mq(lg) {
+    --dir: row;
+    --gap: 3em;
+    text-align: left;
+  }
+
+  .text-box {
+    margin-top: 5rem;
+  }
+}
+
+.tab-buttons > * {
+  width: 100%;
+  border: 1px solid var(--clr-neutral-400);
+  border-left: none;
+  border-right: none;
+  padding: 0.5em 0;
+  background-color: transparent;
+  position: relative;
+  transition: all 0.2s;
+
+  @include mq(lg) {
+    border: none;
+    border-bottom: 1px solid var(--clr-neutral-400);
+  }
+}
+
+.tab-buttons {
+  --gap: 0;
+
+  @include mq(lg) {
+    --dir: row;
+    max-width: 750px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.tab-buttons > *:hover {
+  color: var(--clr-secondary);
+}
+
+.tab-buttons button[aria-selected="true"]::after {
+  content: "";
+  width: 40%;
+  height: 4px;
+  background-color: var(--clr-secondary);
+  bottom: 0;
+  left: 50%;
+  position: absolute;
+  transform: translateX(-50%);
+
+  @include mq(lg) {
+    width: 100%;
+  }
+}
+
+/* illustrations */
+.illustration {
+  position: relative;
+}
+
+.illustration > div::after {
+  content: "";
+  position: absolute;
+  background-color: var(--clr-primary);
+  top: 20%;
+  height: 80%;
+  width: 300%;
+  z-index: -1;
+}
+
+.illustration > div::after {
+  left: 20%;
+  border-bottom-left-radius: 125px;
+}
+
+.tabs .illustration > div::after {
+  height: 95%;
+  left: unset;
+  right: 20%;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 125px;
+}

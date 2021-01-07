@@ -1,0 +1,47 @@
+.hero {
+  --dir: column-reverse;
+
+  .text-box {
+    margin-top: 2em;
+  }
+
+  .cta-buttons {
+    --dir: row;
+  }
+
+  @include mq(lg) {
+    --dir: row;
+  }
+
+  .cta-buttons {
+    max-width: 450px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+
+    .google,
+    .firefox {
+      transition: all 0.1s;
+    }
+
+    .google:hover,
+    .google:active,
+    .firefox:hover,
+    .firefox:active {
+      --fg: var(--clr-primary);
+      --border-color: var(--clr-primary);
+      background-color: transparent;
+      color: var(--fg);
+    }
+
+    .firefox:hover,
+    .firefox:active {
+      --fg: var(--clr-neutral-500);
+      --border-color: var(--clr-neutral-500);
+    }
+
+    @include mq(lg) {
+      margin-left: 0;
+    }
+  }
+}

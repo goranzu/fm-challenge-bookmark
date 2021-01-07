@@ -18,8 +18,23 @@
 @import "base/focus";
 @import "base/screenreader";
 @import "base/reset";
+@import "base/typography";
+
+//--------------------
+// Sections
+//--------------------
+
+@import "sections/header";
+@import "sections/hero";
+@import "sections/features";
+@import "sections/cta";
+@import "sections/faq";
+@import "sections/contact";
+@import "sections/footer";
 
 //--------------------
 // COMPONENTS
 // partials with local scope to a component
 //--------------------
+
+@import "components/mobile-nav";

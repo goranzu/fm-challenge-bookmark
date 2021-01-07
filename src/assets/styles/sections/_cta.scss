@@ -1,0 +1,79 @@
+.cta header {
+  --fl: 0.5em;
+  // margin-bottom: 3rem;
+}
+
+.cards {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  --gap: 0;
+
+  @include mq(lg) {
+    --dir: row;
+    --fl: 0em;
+    --gap: 2em;
+    --wrap: wrap;
+  }
+
+  .card {
+    box-shadow: var(--box-shadow);
+    padding: 2rem 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 100%;
+
+    svg {
+      max-width: 100%;
+    }
+
+    &:nth-of-type(2) {
+      @include mq(xl) {
+        margin-top: 5rem;
+      }
+    }
+
+    &:nth-of-type(3) {
+      @include mq(xl) {
+        margin-top: 11rem;
+      }
+    }
+
+    .btn {
+      transition: all 0.2s;
+    }
+
+    .btn:hover,
+    .btn:active {
+      background-color: transparent;
+      color: var(--clr-primary);
+      --border-color: var(--clr-primary);
+    }
+
+    @include mq(md) {
+      max-width: 280px;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 0.7em;
+    }
+
+    .info span {
+      display: block;
+    }
+
+    .info span:first-of-type {
+      font-weight: var(--fw-500);
+      color: var(--clr-neutral-500);
+    }
+
+    .info span:nth-of-type(2) {
+      font-size: 0.9rem;
+    }
+
+    > * + * {
+      margin-top: 1.5em;
+    }
+  }
+}

@@ -1,0 +1,25 @@
+:root {
+  @include mq(md) {
+    --fs-400: 1.125rem;
+  }
+}
+
+body {
+  font-family: var(--ff-ss);
+  font-weight: var(--fw-400);
+  text-align: center;
+  font-size: var(--fs-400);
+  color: var(--clr-neutral-400);
+  overflow-x: hidden;
+
+  @include mq(lg) {
+    text-align: left;
+  }
+}
+
+h1,
+h2,
+h3,
+h4 {
+  color: var(--clr-neutral-500);
+}
